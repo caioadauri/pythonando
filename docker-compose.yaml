@@ -1,0 +1,13 @@
+version: '3'
+services:
+  pythonando-mysql:
+    image: arm64v8/mysql
+    command: --innodb-use-native-aio=0
+    restart: always
+    ports:
+      - "3306:3306"
+    volumes:
+      - "./.docker/dbdata:/var/lib/mysql"
+    environment:
+      - MYSQL_DATABASE=pythonando
+      - MYSQL_ROOT_PASSWORD=root
